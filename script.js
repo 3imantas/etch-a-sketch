@@ -2,6 +2,16 @@ const maxGridSize = 32; // 32x32
 let gridSize = 16;  // 16x16 blocks
 let blockSize; // 20x20px
 
+const gridContainer = document.querySelector('.grid-container');
+const slider = document.querySelector('.slider');
+const sliderValue = document.querySelector('.slider-value');
+const drawButton = document.querySelector('.draw');
+const eraseButton = document.querySelector('.erase');
+
+let drawIsClicked = true;
+let eraseIsClicked = false;
+
+const buttons = document.querySelectorAll('button');
 
 function createGrid()
 {   
@@ -21,9 +31,6 @@ function createGrid()
         }
         grid.appendChild(column);
     }
-    //let width = (gridSize*(blockSize+2));
-    //grid.style.width = width + 'px';
-    //grid.style.height = width + 'px';
     
     gridContainer.append(grid);
 
@@ -37,25 +44,25 @@ function createGrid()
 
 function removeGrid()
 {
-    let blocks = document.querySelectorAll('.block');
+    const blocks = document.querySelectorAll('.block');
     blocks.forEach(function(block){
         block.remove();
     });
 
+    const columns = document.querySelectorAll('.grid-column');
     columns.forEach(function(col){
         col.remove();
     });
+
     const grid = document.querySelector('.grid');
     grid.remove();
 }
 
-
 function draw(color)
 {   
-    //console.log('called');
     let isMouseDown = false;
-    let blocks = document.querySelectorAll('.block');
-    //console.log(blocks);
+    const blocks = document.querySelectorAll('.block');
+
     blocks.forEach(function(block){
         block.addEventListener('mousedown', function(){
             isMouseDown = true;
@@ -77,7 +84,7 @@ function draw(color)
 
 function handleClick(button)
 {
-    let blocks = document.querySelectorAll('.block');
+    const blocks = document.querySelectorAll('.block');
     //console.log(button.className)
     if(button.className == 'draw' || button.className == 'draw clicked'){
         if(drawIsClicked != true)
@@ -122,26 +129,12 @@ function handleClick(button)
     }
 }
 
-const gridContainer = document.querySelector('.grid-container');
+
+sliderValue.textContent = gridSize +' x '+ gridSize;
 createGrid();
 
-const columns = document.querySelectorAll('.grid-column');
-const slider = document.querySelector('.slider');
-const sliderValue = document.querySelector('.slider-value');
-sliderValue.textContent = gridSize;
-
-
-const drawButton = document.querySelector('.draw');
-const eraseButton = document.querySelector('.erase');
-
-let drawIsClicked = true;
-let eraseIsClicked = false;
-
-drawButton.classList.add('clicked')
-
-const buttons = document.querySelectorAll('button');
+drawButton.classList.add('clicked');
 draw('black');
-
 
 
 buttons.forEach(function(button){
@@ -159,11 +152,10 @@ let inputHandler = function(){
     
     let value = (slider.value/100)*(maxGridSize-1)+1;
     gridSize = Math.floor(value);
-    sliderValue.textContent = gridSize;
+    sliderValue.textContent = gridSize +' x '+ gridSize;
     removeGrid();
     createGrid();
     draw('black');
 };
 
 slider.addEventListener('input', inputHandler);
-
