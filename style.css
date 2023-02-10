@@ -1,25 +1,62 @@
+body{
+    font-family: 'Righteous';
+    height: 1080px;
+    background: linear-gradient(to bottom right, 
+    rgb(160, 10, 230), 
+    rgb(255, 0, 128));
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+h1{
+    color: rgb(255, 255, 245);
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+
 .block{
     border: 1px solid black;
 }
 
 .grid{
     display: flex;
-    border: 1px solid black;
+    border: 3px solid black;
+    border-radius: 10px;
     width: 500px;
     height: 500px;
 }
 
+.container{
+    padding: 0px 380px 0px 380px;
+}
+
 .grid-container{
     display: flex;
+    gap: 100px;
     justify-content: center;
-    gap: 50px;
+    padding: 50px 250px 50px 0px;
+    background-color: rgb(255, 255, 245);
+    border-radius: 20px;
 }
 
 .header{
     display: flex;
     justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 70px;
 }
 
 .buttons{
@@ -27,9 +64,13 @@
     flex-direction: column;
     justify-content: top;
     gap: 10px;
+    width: 200px;
+    justify-content: center;
 }
 
 .buttons button{
+    font-family: 'Righteous';
+    font-size: 16px;
     padding: 10px 20px;
     color: white;
     background-color: rgb(43, 135, 255);
@@ -47,6 +88,10 @@
 
 .slider-container{
     padding: 40px 0px;
+}
+
+.slider{
+    width: 200px;
 }
 
 .slider-value{

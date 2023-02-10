@@ -6,20 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="header">
         <h1>Etch-a-Sketch</h1>
     </div>
-    <div class="grid-container">        
-        <div class="buttons">
-            <button class="draw">Draw</button>
-            <button class="erase">Erase</button>
-            <button class="clear">Clear</button>
-            <div class="slider-container">
-                <p class="slider-value"></p>
-                <input class="slider" type="range">
+    <div class="container">
+        <div class="grid-container">        
+            <div class="buttons">
+                <input type="color">
+                <button class="draw">Draw</button>
+                <button class="erase">Erase</button>
+                <button class="clear">Clear</button>
+                <div class="slider-container">
+                    <p class="slider-value"></p>
+                    <input class="slider" type="range">
+                </div>
             </div>
         </div>
     </div>
