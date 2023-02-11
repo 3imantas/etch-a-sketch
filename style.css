@@ -40,10 +40,13 @@ h1{
 }
 
 .container{
-    padding: 0px 380px 0px 380px;
+    display: flex;
+    justify-content: center;
 }
 
 .grid-container{
+    width: 900px;
+    height: 500px;
     display: flex;
     gap: 100px;
     justify-content: center;
@@ -99,4 +102,20 @@ h1{
     justify-content: center;
 }
 
+.color{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
 
+.color p{
+    font-size: 22px;
+}
+
+.color input[type="color"]{
+    height: 40px;
+    width: 80px;
+    border: 0px;
+    border-radius: 10px;
+}

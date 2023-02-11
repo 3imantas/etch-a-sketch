@@ -7,6 +7,7 @@ const slider = document.querySelector('.slider');
 const sliderValue = document.querySelector('.slider-value');
 const drawButton = document.querySelector('.draw');
 const eraseButton = document.querySelector('.erase');
+const colorSelector = document.querySelector('input[type="color"]');
 
 let drawIsClicked = true;
 let eraseIsClicked = false;
@@ -90,7 +91,7 @@ function handleClick(button)
         if(drawIsClicked != true)
         {
             button.classList.add('clicked');
-            draw('black');
+            draw(colorSelector.value);
             drawIsClicked = true;
             eraseIsClicked = false;
             eraseButton.classList.remove('clicked');
@@ -121,7 +122,7 @@ function handleClick(button)
         if(drawIsClicked != true)
         {
             drawButton.classList.add('clicked');
-            draw('black');
+            draw(colorSelector.value);
             drawIsClicked = true;
             eraseIsClicked = false;
             eraseButton.classList.remove('clicked');
@@ -134,7 +135,7 @@ sliderValue.textContent = gridSize +' x '+ gridSize;
 createGrid();
 
 drawButton.classList.add('clicked');
-draw('black');
+draw(colorSelector.value);
 
 
 buttons.forEach(function(button){
@@ -155,7 +156,18 @@ let inputHandler = function(){
     sliderValue.textContent = gridSize +' x '+ gridSize;
     removeGrid();
     createGrid();
-    draw('black');
+    draw(colorSelector.value);
 };
 
 slider.addEventListener('input', inputHandler);
+
+/*
+colorSelector.addEventListener('change', function(){
+    draw(colorSelector.value);
+});
+*/
+
+let lastInputTime;
+colorSelector.addEventListener('change', function(){
+    draw(colorSelector.value)
+});
